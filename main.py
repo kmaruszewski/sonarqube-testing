@@ -1,18 +1,33 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
+import re
 if __name__ == '__main__':
-    print_hi('PyCharm')
-    print("siemanko")
-    print("siemanko2")
+    print("Podaj działanie:")
+    inputed_string = input()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+    def findtypeofaction(string):
+        signs = ["+", "-", "*", "/"]
+        for sign in signs:
+            if sign in string:
+                action = sign
+                return action
+
+    action = findtypeofaction(inputed_string)
+
+    def calculate(input, action):
+        if action == "+":
+            splittedvalues = input.split("+")
+            print("Wynik to", int(splittedvalues[0]) + int(splittedvalues[1]))
+
+        if action == "-":
+            splittedvalues = input.split("-")
+            print("Wynik to", int(splittedvalues[0]) - int(splittedvalues[1]))
+
+        if action == "/":
+            splittedvalues = input.split("/")
+            print("Wynik to", int(splittedvalues[0]) / int(splittedvalues[1]))
+
+        if action == "*":
+            splittedvalues = input.split("*")
+            print("Wynik to", int(splittedvalues[0]) * int(splittedvalues[1]))
+
+    calculate(inputed_string, action)
